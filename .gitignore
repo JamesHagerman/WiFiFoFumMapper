@@ -4,12 +4,32 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile ~/.gitignore_global
 
+*.gem
+*.rbc
+.config
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/version_tmp
+
 # Ignore bundler config
 /.bundle
+.bundle
+
+# Ignore all database.yml's
+*/database.yml
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
-/tmp
+tmp
+
+# YARD artifacts
+.yardoc
+_yardoc
+doc/
