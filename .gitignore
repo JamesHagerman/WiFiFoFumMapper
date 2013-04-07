@@ -33,3 +33,9 @@ tmp
 .yardoc
 _yardoc
 doc/
+
+# Ignore all of my KML files:
+*.kml
+*.KML
+*/ap_list.csv
+Processing/wifi_log_sorter/data/*.csv
