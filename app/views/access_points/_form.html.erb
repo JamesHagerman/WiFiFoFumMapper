@@ -1,0 +1,49 @@
+<%= form_for(@access_point) do |f| %>
+  <% if @access_point.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@access_point.errors.count, "error") %> prohibited this access_point from being saved:</h2>
+
+      <ul>
+      <% @access_point.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ssid %><br />
+    <%= f.text_field :ssid %>
+  </div>
+  <div class="field">
+    <%= f.label :mac %><br />
+    <%= f.text_field :mac %>
+  </div>
+  <div class="field">
+    <%= f.label :channel %><br />
+    <%= f.text_field :channel %>
+  </div>
+  <div class="field">
+    <%= f.label :strength %><br />
+    <%= f.text_field :strength %>
+  </div>
+  <div class="field">
+    <%= f.label :encryption_type %><br />
+    <%= f.text_field :encryption_type %>
+  </div>
+  <div class="field">
+    <%= f.label :ap_type %><br />
+    <%= f.text_field :ap_type %>
+  </div>
+  <div class="field">
+    <%= f.label :first_seen %><br />
+    <%= f.datetime_select :first_seen %>
+  </div>
+  <div class="field">
+    <%= f.label :last_seen %><br />
+    <%= f.datetime_select :last_seen %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

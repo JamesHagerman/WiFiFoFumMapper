@@ -1,0 +1,37 @@
+<h1>Listing access_points</h1>
+
+<table>
+  <tr>
+    <th>Ssid</th>
+    <th>Mac</th>
+    <th>Channel</th>
+    <th>Strength</th>
+    <th>Encryption type</th>
+    <th>Ap type</th>
+    <th>First seen</th>
+    <th>Last seen</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @access_points.each do |access_point| %>
+  <tr>
+    <td><%= access_point.ssid %></td>
+    <td><%= access_point.mac %></td>
+    <td><%= access_point.channel %></td>
+    <td><%= access_point.strength %></td>
+    <td><%= access_point.encryption_type %></td>
+    <td><%= access_point.ap_type %></td>
+    <td><%= access_point.first_seen %></td>
+    <td><%= access_point.last_seen %></td>
+    <td><%= link_to 'Show', access_point %></td>
+    <td><%= link_to 'Edit', edit_access_point_path(access_point) %></td>
+    <td><%= link_to 'Destroy', access_point, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Access point', new_access_point_path %>

@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Ssid:</b>
+  <%= @access_point.ssid %>
+</p>
+
+<p>
+  <b>Mac:</b>
+  <%= @access_point.mac %>
+</p>
+
+<p>
+  <b>Channel:</b>
+  <%= @access_point.channel %>
+</p>
+
+<p>
+  <b>Strength:</b>
+  <%= @access_point.strength %>
+</p>
+
+<p>
+  <b>Encryption type:</b>
+  <%= @access_point.encryption_type %>
+</p>
+
+<p>
+  <b>Ap type:</b>
+  <%= @access_point.ap_type %>
+</p>
+
+<p>
+  <b>First seen:</b>
+  <%= @access_point.first_seen %>
+</p>
+
+<p>
+  <b>Last seen:</b>
+  <%= @access_point.last_seen %>
+</p>
+
+
+<%= link_to 'Edit', edit_access_point_path(@access_point) %> |
+<%= link_to 'Back', access_points_path %>

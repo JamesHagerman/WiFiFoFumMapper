@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ssid: MyString
+  mac: MyString
+  channel: 
+  strength: 
+  encryption_type: MyString
+  ap_type: MyString
+  first_seen: 2013-04-06 18:32:52
+  last_seen: 2013-04-06 18:32:52
+
+two:
+  ssid: MyString
+  mac: MyString
+  channel: 
+  strength: 
+  encryption_type: MyString
+  ap_type: MyString
+  first_seen: 2013-04-06 18:32:52
+  last_seen: 2013-04-06 18:32:52
