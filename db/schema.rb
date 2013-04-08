@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130407013252) do
+ActiveRecord::Schema.define(:version => 20130408195705) do
 
   create_table "access_points", :force => true do |t|
     t.string   "ssid"
@@ -22,8 +22,11 @@ ActiveRecord::Schema.define(:version => 20130407013252) do
     t.string   "ap_type"
     t.datetime "first_seen"
     t.datetime "last_seen"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
+    t.decimal  "latitude",        :precision => 15, :scale => 12
+    t.decimal  "longitude",       :precision => 15, :scale => 12
+    t.decimal  "altitude",        :precision => 15, :scale => 12
   end
 
 end

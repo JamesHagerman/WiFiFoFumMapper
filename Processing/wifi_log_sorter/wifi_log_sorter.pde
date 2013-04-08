@@ -18,7 +18,7 @@ Table ap_table;
 
 void setup() {
   // Load the kml file as an xml file
-  xml = loadXML("new.kml");
+  xml = loadXML("all.kml");
   //  println(xml.listChildren());
 
   // We only care about the Placemark elements so only get those
@@ -54,6 +54,9 @@ void setup() {
   ap_table.addColumn("ap_type");
   ap_table.addColumn("first_seen");
   ap_table.addColumn("last_seen");
+  ap_table.addColumn("latitude");
+  ap_table.addColumn("longitude");
+  ap_table.addColumn("altitude");
   
   for (int i = 0; i < ap_list.length; i++) {
     
@@ -66,16 +69,22 @@ void setup() {
     newRow.setString("ap_type", ap_list[i].ap_type);
     newRow.setString("first_seen", ap_list[i].first_seen);
     newRow.setString("last_seen", ap_list[i].last_seen);
+    newRow.setFloat("latitude", ap_list[i].latitude);
+    newRow.setFloat("longitude", ap_list[i].longitude);
+    newRow.setFloat("altitude", ap_list[i].altitude);
   }
   
   saveTable(ap_table, "data/ap_list.csv");
   println("Saved!");
+  
+  exit();
   
 }
 
 class AccessPoint {
   XML original_xml;
   String original_desc;
+  String coordinates;
   
   String ssid;
   String mac;
@@ -85,6 +94,7 @@ class AccessPoint {
   String ap_type;
   String first_seen;
   String last_seen; //new java.util.Date(timestamp*1000);
+  float latitude, longitude, altitude;
 
   AccessPoint (XML initial_xml) {
     parseXMLObject(initial_xml);
@@ -94,9 +104,15 @@ class AccessPoint {
   void parseXMLObject(XML to_parse) {
     ssid = to_parse.getChildren("name")[0].getContent();
     original_desc = to_parse.getChildren("description")[0].getContent();
+    coordinates = to_parse.getChildren("Point")[0].getChildren("coordinates")[0].getContent(); 
     
     String[] split_desc = split(original_desc, "<br>");
+    String[] split_coords = split(coordinates, ',');
     
+    latitude = Float.parseFloat(split_coords[0]);
+    longitude = Float.parseFloat(split_coords[1]);
+    altitude = Float.parseFloat(split_coords[2]);
+     
     mac = split(split_desc[0], ": ")[1];
     channel = Integer.parseInt(split(split_desc[1], ": ")[1]);
     strength = Integer.parseInt(split(split_desc[2], ": ")[1]);

@@ -10,6 +10,9 @@
     <th>Ap type</th>
     <th>First seen</th>
     <th>Last seen</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Altitude</th>
     <th></th>
     <th></th>
     <th></th>
@@ -25,6 +28,9 @@
     <td><%= access_point.ap_type %></td>
     <td><%= access_point.first_seen %></td>
     <td><%= access_point.last_seen %></td>
+    <td><%= access_point.latitude %></td>
+    <td><%= access_point.longitude %></td>
+    <td><%= access_point.altitude %></td>
     <td><%= link_to 'Show', access_point %></td>
     <td><%= link_to 'Edit', edit_access_point_path(access_point) %></td>
     <td><%= link_to 'Destroy', access_point, method: :delete, data: { confirm: 'Are you sure?' } %></td>
